@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Donate</title>
+	<link rel="icon" href="images/donate.ico" type="image/x-icon">
+
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="jquery-ui.css">
+	<link rel="stylesheet" href="theme.css">
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script>
+		$( function() {
+			$( "#accordion" ).accordion({
+				heightStyle: "content"
+			});
+		} );
+	</script>
+
+<script>
+	function copyToClipboard(elementId) {
+		// Знаходимо елемент за ідентифікатором
+		var element = document.getElementById(elementId);
+
+		// Створюємо об'єкт для виділення тексту
+		var selection = window.getSelection();
+
+		// Вибираємо текст у елементі
+		var range = document.createRange();
+		range.selectNodeContents(element);
+		selection.removeAllRanges();
+		selection.addRange(range);
+
+		// Копіюємо виділений текст в буфер обміну
+		document.execCommand('copy');
+
+		// Знімаємо виділення
+		selection.removeAllRanges();
+
+		// Повідомлення про успішне копіювання
+		alert('Текст скопійовано: ' + element.innerText);
+	}
+</script>
+</head>
+<body>
+	<div class="banner">
+		<span class="caption"><b>💵 Збір на тепловізор та зарядну станцію</b></span>
+	</div>
+	<div class="container">
+		<span class="intro">
+			<p style="font-size: 1.5em; font-weight: bold;">Терміновий збір коштів на тепловізор та зарядну станцію!</p>
+			<p>Друзі, потрібна наша допомога для Олександра Красоти та його побратимів, які зараз знаходяться в зоні активних бойових дій на Запорізькому напрямку.</p>
+			<p>Їм дуже потрібен тепловізор та зарядна станція. <span style="font-weight: bold;">Мета - 60 тис. грн.</span></p>
+			<p>Просимо усіх небайдужих долучитися до збору. Кожна гривня безцінна, навіть 10, 20, 50 грн - це теж важлива допомога.</p>
+			<br>
+			<p>Номер картки матері: <span style="font-weight: bold;">4790 7299 4760 6844</span></p>
+			<p>Семиволос Людмила Олександрівна</p>
+			<p>Прошу максимального репосту.</p>
+			<p>Разом до перемоги!</p>
+		</span>
+		<div id="accordion">
+			<h3><b>Зарядна станція "Ecoflow"</b></h3>
+			<div>
+				<p id="textToCopy">4790 7299 4760 6844</p>
+				<button onclick="copyToClipboard('textToCopy')">Копіювати</button>
+				<img class="powerstation" src="images/Delta.png" width="400" height="300">
+			</div>
+			<h3><b>Тепловізор</b></h3>
+			<div>
+				<p id="textToCopy">4790 7299 4760 6844</p>
+				<button onclick="copyToClipboard('4790 7299 4760 6844')">Копіювати</button>
+				<img class="tepl" src="images/teplovisor.png" width="400" height="300">
+			</div>
+		</div>
+	</div>
+</body>
+</html>
